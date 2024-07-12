@@ -30,7 +30,7 @@ project "GLFW"
 		pic "On"
 
 		systemversion "latest"
-		
+
 		files
 		{
 			"src/x11_init.c",
@@ -105,17 +105,20 @@ project "GLFW"
 
 filter "configurations:Debug"
 defines { "AE_DEBUG" }
+staticruntime "On"
 runtime "Debug"
 symbols "On"
 
 filter "configurations:Release"
 defines { "AE_RELEASE" }
+staticruntime "On"
 runtime "Release"
 optimize "On"
 symbols "On"
 
 filter "configurations:Dist"
 defines { "AE_DIST" }
+staticruntime "On"
 runtime "Release"
 optimize "On"
 symbols "Off"
