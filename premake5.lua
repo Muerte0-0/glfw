@@ -1,8 +1,7 @@
 project "GLFW"
 	kind "StaticLib"
 	language "C"
-	staticruntime "off"
-	warnings "off"
+	staticruntime "on"
 	targetdir ("../../../Binaries/" .. OutputDir .. "/%{prj.name}")
 	objdir ("../../../Intermediate/" .. OutputDir .. "/%{prj.name}")
 
@@ -76,7 +75,6 @@ project "GLFW"
 
 	filter "system:windows"
 		systemversion "latest"
-
 		files
 		{
 			"src/win32_init.c",
@@ -97,25 +95,10 @@ project "GLFW"
 			"_CRT_SECURE_NO_WARNINGS"
 		}
 
-	filter { "system:windows", "configurations:Debug-AS" }	
-		runtime "Debug"
-		symbols "on"
-		sanitize { "Address" }
-		flags { "NoRuntimeChecks", "NoIncrementalLink" }
-
 filter "configurations:Debug"
-defines { "AE_DEBUG" }
 runtime "Debug"
-symbols "On"
+symbols "on"
 
 filter "configurations:Release"
-defines { "AE_RELEASE" }
 runtime "Release"
-optimize "On"
-symbols "On"
-
-filter "configurations:Dist"
-defines { "AE_DIST" }
-runtime "Release"
-optimize "On"
-symbols "Off"
+optimize "on"
