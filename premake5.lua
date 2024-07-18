@@ -1,7 +1,7 @@
 project "GLFW"
 	kind "StaticLib"
 	language "C"
-	staticruntime "off"
+	staticruntime "on"
 	targetdir ("../../../Binaries/" .. OutputDir .. "/%{prj.name}")
 	objdir ("../../../Intermediate/" .. OutputDir .. "/%{prj.name}")
 
@@ -94,11 +94,6 @@ defines
 { 
 	"_GLFW_WIN32",
 	"_CRT_SECURE_NO_WARNINGS"
-}
-
-links
-{
-	"Dwmapi.lib"
 }
 
 filter "configurations:Debug"
