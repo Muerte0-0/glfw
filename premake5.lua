@@ -2,8 +2,9 @@ project "GLFW"
 	kind "StaticLib"
 	language "C"
 	staticruntime "on"
-	targetdir ("../../../Binaries/" .. OutputDir .. "/%{prj.name}")
-	objdir ("../../../Intermediate/" .. OutputDir .. "/%{prj.name}")
+
+targetdir ("%{wks.location}/Binaries/" .. OutputDir .. "/%{prj.name}")
+objdir ("%{wks.location}/Intermediate/" .. OutputDir .. "/%{prj.name}")
 
 files
 {
